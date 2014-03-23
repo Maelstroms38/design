@@ -1,0 +1,108 @@
+require 'json'
+
+pets = File.open("pets.txt", "r")
+
+doc = ""
+pets.each do |line|
+  doc << line
+end
+pets.close
+
+puts JSON.parse(doc)
+
+require "rexml/document"
+
+file = File.open("pets.txt")
+doc = REXML::Document.new file
+file.close
+
+doc.elements.each("pets/pet/name") do |element|
+  puts element
+end
+
+require 'open-uri'
+
+# Add your code below!
+website = open("http://placekitten.com/")
+puts website.status
+
+Verifying Credentials
+require 'rubygems'
+require 'oauth'
+
+# Change the following values to those provided on dev.twitter.com
+# The consumer key identifies the application making the request.
+# The access token identifies the user making the request.
+consumer_key = OAuth::Consumer.new(
+    "NMURSuIsN5IOKpRZ6Vljeg",
+    "PJ3FcuHV4c6qdX1k8ifHgsrhDH4jmcfVSpwqtTMPutM")
+access_token = OAuth::Token.new(
+    "988005787-VHeyHAh8sTRwQuHJXPaapwmewrpjLcmoV6lAckCH",
+    "zLBxfKdqPwT6duefynu4lbVwLu1DrnsFCnoaYQWAMNFnx")
+
+# All requests will be sent to this server.
+baseurl = "https://api.twitter.com"
+
+# The verify credentials endpoint returns a 200 status if
+# the request is signed correctly.
+address = URI("#{baseurl}/1.1/account/verify_credentials.json")
+
+# Set up Net::HTTP to use SSL, which is required by Twitter.
+http = Net::HTTP.new address.host, address.port
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+
+# Build the request and authorize it with OAuth.
+request = Net::HTTP::Get.new address.request_uri
+request.oauth! http, consumer_key, access_token
+
+# Issue the request and return the response.
+http.start
+response = http.request request
+puts "The response status was #{response.code}"
+
+Sending a Tweet
+
+require 'rubygems'
+require 'oauth'
+require 'json'
+
+# You will need to set your application type to
+# read/write on dev.twitter.com and regenerate your access
+# token.  Enter the new values here:
+consumer_key = OAuth::Consumer.new(
+  "VhVmIQEKOhqw7g0e0sW9g",
+  "GZa8kjubu7aeDh4MM9tDONy6kziupHvTefAmFxhTSDU")
+access_token = OAuth::Token.new(
+  "988005787-PcRXVRTownAdWjiDgmBdYW1rV3Igj9yleDrhNq6a",
+  "1x5EwIQK34a2vHCn4FmauglA011x4vXhvceduA1sRq4tV")
+
+# Note that the type of request has changed to POST.
+# The request parameters have also moved to the body
+# of the request instead of being put in the URL.
+baseurl = "https://api.twitter.com"
+path    = "/1.1/statuses/update.json"
+address = URI("#{baseurl}#{path}")
+request = Net::HTTP::Post.new address.request_uri
+request.set_form_data(
+  "status" => "ready",
+)
+# Set up HTTP.
+http             = Net::HTTP.new address.host, address.port
+http.use_ssl     = true
+http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+
+# Issue the request.
+request.oauth! http, consumer_key, access_token
+http.start
+response = http.request request
+
+# Parse and print the Tweet if the response code was 200
+tweet = nil
+if response.code == '200' then
+  tweet = JSON.parse(response.body)
+  puts "Successfully sent #{tweet["text"]}"
+else
+  puts "Could not send the Tweet! " +
+  "Code:#{response.code} Body:#{response.body}"
+end

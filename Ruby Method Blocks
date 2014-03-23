@@ -1,0 +1,27 @@
+Ruby
+def what_up(greeting, *bros)
+  bros.each { |bro| puts "#{greeting}, #{bro}!" }
+end
+ 
+what_up("What up", "Justin", "Ben", "Kevin Sorbo")
+
+fruits = ["orange", "apple", "banana", "pear", "grapes"]
+fruits.sort! do |first, second|
+if first < second
+    1
+    elsif first > second
+        -1
+    else
+        0
+end
+end
+
+def alphabetize (arr, rev = false)
+if rev == true
+    arr.sort! {|i1, i2| i2 <=> i1}
+else
+    arr.sort! {|i1, i2| i1 <=> i2}
+end
+end
+numbers = [1, 3, 4, 5]
+puts alphabetize(["books", "dream", "ball"])

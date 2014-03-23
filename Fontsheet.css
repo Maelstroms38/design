@@ -1,0 +1,64 @@
+@font-face {font-family:'ChunkFiveRegular':
+src: url('fonts/chunkfive.eot');}
+h1, h2 {font-family:ChunkFiveRegular, Georgia, serif;}
+
+li {display: inline;
+margin-right: 10px;}
+li.coming-soon {display: none;
+visibility: hidden;}
+
+h1 {text-transform: uppercase;
+text-align: left;}
+h2 {text-transform: lowercase;
+text-align: justify;
+text-indent: -9999px;
+text-shadow: 2px 2px 3px #666666;}
+
+td.description {
+min-width: 450px;
+max-width: 650px;
+text-align: left;
+padding: 5px;
+margin: 0px;}
+
+.credits {font-weight:bold;
+font-style: italic;
+text-transform: capitalize;
+text-decoration: underline;
+text-align: right;
+text-indent: 20px;}
+
+p{line-height: 5em;
+letter-spacing: 0.2em;
+word-spacing: 1em;}
+
+p.intro:first-letter {font-size: 200%;}
+p.intro:first-line {font-weight: bold;}
+
+a:link {color:deeppink;
+text-decoration: none;}
+a:visited {color:black;}
+a:hover {color:deeppink;
+text-decoration: underline;}
+a:active {color: darkcyan;}
+
+input {padding: 6px 12 px 6px 1px;
+border: 1px solid #665544;
+color: #ffffff;}
+input.submit:hover {background-color: #665544;}
+input.submit:active {background-color: chocolate;}
+input.text {color: #cccccc;}
+input.text:focus {color:#665544;}
+
+div {height: 300px:
+width: 400px: background-color: #ee3e80;}
+p {height: 75%;
+width: 75%:
+background-color: #elddda;}
+
+body { text-align:center;}
+p {width: 300px;
+padding: 50px;
+border: 20px solid #0088dd;}
+p.example {margin: 10px auto 10px auto;
+text-align: left;}

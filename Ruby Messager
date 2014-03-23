@@ -1,0 +1,34 @@
+class Message
+    @@messages_sent = 0
+    def initialize(from, to)
+        @from = from
+        @to = to
+        @@messages_sent += 1
+    end
+end
+my_message= Message.new("Michael", "Drew")
+
+class Email < Message
+    def initialize(from, to)
+        super
+    end
+end
+
+class Computer
+    def initialize(username, password, users)
+        @username = username
+        @password = password
+        @@files = {}
+        @@users[username] = password
+    end
+    @@users = {}
+    def create(filename)
+        @time = Time.now
+        @files[filename] = time
+       puts "A new file #{@filename} was created at #{@time} by #{@username} !"
+    end
+    def Computer.get_users
+         @@users
+    end
+end
+my_computer = Computer.new("Michael", "Stromile", "one")

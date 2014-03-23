@@ -1,0 +1,35 @@
+iOS Models
+
+// Photo.m
+#import Photo.h
+@property (strong, nonatomic);
+
+- (id)initWithCity:(NSString *)city address:(NSString *)anAddress
+
+-(id) initWithCity:(NSString *)aCity;
+		address:(NSString *)anAddress;
+
+@implementation Photo
+
+-(id)init
+{
+    self = [super init];
+    return self;
+}
+
+-(id)initWithTitle:(NSString *)aTitle
+            detail:(NSString *)aDetail
+          filename:(NSString *)aFilename
+         thumbnail:(NSString *)aThumbnail
+         {
+           self = [super init];
+           if (self) {
+             self.title=aTitle;
+             self.detail=aDetail;
+             self.filename=aFilename;
+             self.thumbnail=aThumbnail;
+           }
+           return self;
+         }
+
+@end

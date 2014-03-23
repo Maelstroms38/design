@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="background:#000000">
+
+<title>ZBT NYC</title>
+<link rel="stylesheet" type="text/css" href="zbt.css">
+
+<img src="http://farm6.staticflickr.com/5505/11572859815_4ff72005d4.jpg" width="960" height="360" alt="zbt_wallpaper">
+
+
+
+<h1 style=color:#6BB1FF>Zeta Beta Tau</h1> 
+
+<form method="get" action="http://www.nyuzbt.com/#about"><button type="about">About
+</button>
+<form method="get" action="http://www.nyuzbt.com/#brothers"><button type="brothers">Brothers
+</button>
+<form method="get" action="http://www.nyuzbt.com/#contact"><button type="contact">Contact
+</button>
+<form method="get"action="<!--events-->"><button type="events">Events
+</button></form>
+
+
+<form method="get" action="https://www.facebook.com/NYUZBT">
+<button type="facebook">Find us on Facebook!
+</button></form>

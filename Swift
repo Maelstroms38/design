@@ -1,0 +1,430 @@
+Swift
+
+var myVariable = 42
+myVariable = 50
+let myConstant = 42
+
+let implicitInteger = 70
+let implicitDouble = 70
+let explicitDouble: Double = 70
+
+let explicitFloat: Float = 4
+
+let label = "The width is "
+let width = 94
+let widthLabel = label + String(width)
+
+// Remove String conversion. Error?
+
+let apples = 3
+let oranges = 5
+let appleSummary = "I have \(apples) apples."
+let fruitSummary = "I have \(apples + oranges) pieces of fruit."
+
+// Use \() to include someone's name in a greeting
+// let voice = "Good afternoon"
+// let name = "Michael"
+// let greeting = "\(voice + name)"
+
+// Create arrays using brackets
+var shoppingList = ["catfish, "water", "tulips", "blue paint"]
+shoppingList[1] = "bottle of water"
+
+var occupations = [
+"Malcolm": "Captain",
+"Kaylee": "Mechanic",
+]
+occupations["Jayne"] = "Public Relations"
+
+let emptyArray = String[]()
+let emptyDictionary = Dictionary<String, Float>()
+
+shoppingList = [] // Went shopping, bought everything
+
+// Control Flow
+let individualScores = [75, 43, 103, 87, 12]
+var teamScore = 0
+for score in individualScores {
+	if score > 50 {
+	teamScore += 3
+	} else {
+	teamScore += 1
+	}
+}
+teamScore
+
+// Optional Strings
+var optionalString: String? = "Hello"
+optionalString == nil
+optionalName == nil
+var optionalName: String? = "John Appleseed"
+var greeting = "Hello!"
+if let name = optionalName {
+	greeting = "Hello, \(name)"
+} else {
+	greeting = "How are you, \(name)?"
+}
+// Changed optionalName == nil 
+// Added else that sets different greeting
+
+let vegetable = "red pepper"
+switch vegatable {
+	case "celery": 
+	let vegatableComment = "add some raisins and make ants on a log"
+	case "cucumber", "watercress":
+	let vegetableComment = "That would make a good tea sandwich."
+	case let x where x.hasSuffix("pepper"):
+	let vegatableComment = "Is it a spicy \(x)?"
+default:
+	let vegetableComment = "Everything tastes good in soup."
+}
+// Remove default case. Error?
+
+let Numbers = [
+"Prime": [2, 3, 5, 7, 11, 13],
+"Fibonacci": [1, 1, 2, 3, 5, 8],
+"Square": [1, 4, 9, 16, 25],
+]
+var largest = 0 
+for (kind, numbers) in Numbers {
+	for number in Numbers {
+	if number > largest {
+	largest = number
+	}
+	for number in Numbers {
+	case "Prime", "Fibonacci", "Square":
+	let kind = number
+	}
+	}
+}
+largest
+
+// While loops
+var n = 2
+while n < 100 {
+	n = n * 2
+	}
+n
+
+var m = 2
+	do {
+	m = m *2
+	} while m < 100
+m
+
+// These do the same
+var firstForLoop = 0
+for i in 0..3 {
+	firstForLoop += i
+}
+firstForLoop
+
+var secondForLoop = 0
+for var 1 = 0; i < 3; ++i {
+	secondForLoop += 1
+}
+secondForLoop
+
+// Functions - remove the day parameter.
+func greet(name: String, day: String) -> String {
+	return "Hello\(name), today is \(day)."
+}
+greet ("Bob", "Tuesday")
+
+// Write a function that calculates average
+func sumOf(numbers: Int...) -> Int {
+	var sum = 0
+	for number in numbers {
+	sum += number
+	}
+	return sum
+	for sum in numbers {
+	sum / numbers
+	}
+	return average
+}
+sumOf()
+sumOf(42, 597, 12)
+
+func Fifteen() -> INt {
+	var y = 10
+	func add() {
+	y += 5
+	}
+	add()
+	return y
+}
+Fifteen
+
+// First-Class type returns another function
+func makeIncrement() -> (Int -> Int) {
+	func addOne(number: Int) -> {
+	return 1 + number
+	}
+	return addOne
+}
+var increment = makeIncrement()
+increment(7)
+
+func hasAnyMatches(list: Int[], condition: Int -> Bool) -> {
+	for item in list {
+	if condition(item) {
+	return true
+	}
+	}
+	return false
+}
+func lessThanTen(number:Int) -> Bool {
+	return number < 10
+	} 
+var numbers = [20, 19, 7, 12]
+hasAnyMatches(numbers, lessThanTen)
+
+numbers.map({
+	(number: Int) -> Int in
+	let result = 3* number
+	return 0
+})
+
+// Rewrite the closure to return zero for all odd numbers
+
+numbers.map({ number in 3 * number })
+
+sort([1, 5, 3, 12, 2]) { $0 > $1 }
+
+Objects and Classes
+
+class Shape {
+	var numberOfSides = 0
+	func simpleDescription() -> String {
+	
+	let result = 2 + \(numberOfSides)
+	return "A shape with \(numberOfSides) sides."
+	}
+}
+// Add property with let and add method to take an argument
+
+// Create a class instance with paranthesis
+var shape = Shape()
+shape.numberOfSides = 7
+var shapeDescription = shape.simpleDescription()
+
+class NamedShape {
+	var NumberOfSides: Int = 0 
+	var name: String
+
+	init(name: String) {
+	self.name = name
+	}
+	func simpleDescription() -> String {
+	return "A shape with \(numberOfSides) sides."
+	}
+}
+
+// Override superclass implementation
+class Square: NamedShape {
+	var sideLength: Double
+	init(sideLength: double, name: String) {
+	self.sideLength = sideLength
+	super.init(name: name)
+	numberOfSides = 4
+	}
+	func area() -> Double {
+	return sideLength *sideLength
+	}
+	override func simpleDescription() -> String {
+	return "A square with sides of length \(sideLength)."
+	}
+	// Make a subclass called Circle, which takes radius and name as arguments. Implement an area and describe method method on Circle.
+	class Circle: NamedShape {
+	var radius: describe
+	init(radius: area, name: String) {
+	self.area = area
+	self.name = name
+	radius = 5
+	}
+	func area() -> describe {
+	return radius * 3.14
+	}
+	override func simpleCircle() -> String {
+	return "Circle is of size \(describe)."
+	}
+}
+
+let test = Square(sideLength: 5.2, name: "my test square")
+test.area()
+test.simpleDescription()
+
+// Properties may have getters and setters
+
+class EquilateralTriangle: NamedShape {
+	var sideLength: Double = 0.0
+
+	init(sideLength: Double, name: String) {
+	self.sideLength = sideLength
+	super.init(name: name)
+	numberOfSides = 3
+	}
+	var perimeter: Double {
+	get {
+	return 3.0 * sideLength
+	}
+	set {
+	sideLength = newValue / 3.0
+	}
+
+	override func shapeDescription() -> String {
+	return "An equilateral triangle with sides of length \(sideLength)."
+	}
+}
+var triangle = EquilateralTriangle(sideLength: 3.1, name "a triangle")
+triangle.perimeter
+traingle.perimeter = 9.9
+triangle.sideLength 
+
+// willSet and didSet provides code to run before and after setting the value. The class below ensure both shape sideLengths are equal. 
+
+class TriangleAndSquare {
+	var triangle: EquilateralTriangle {
+	willSet {
+	square.sideLength = newValue.sideLength
+	}
+	}
+	var square: Square {
+	willSet {
+	triangle.sideLength = newValue.sideLength
+	}
+	}
+	init(size: Double, name: String) {
+	square = Square(sideLength: size, name: name)
+	triangle = EquilateralTrangle(sideLength: size, name: name)
+	}
+}
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "another test shape")
+triangleAndSquare.square.sideLength
+triangleAndSquare.triangle.sideLength
+triangleAndSquare.square = Square(sideLength: 50, name: "larger square")
+triangleAndSquare.triangle.sideLength
+
+// Methods have the same name asparameters, we may specify count...
+class Counter {
+	var count: Int = 0
+	func incrementBy(amount: Int, numberOfTimes times: Int) {
+	count += amount * times
+	}
+}
+var counter = Counter()
+counter.incrementBy(2, numberOFTimes: 7)
+
+// Use ? to create nil values after optional lines
+
+let optionalSquare: Square? = Suare(sideLength: 2.5, name: "optional square")
+let sideLength = optionalSquare?.sideLength
+
+// enum create enumerations, which can have method associations
+
+enum Rank: Int {
+	case Ace = 1
+	case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+	case Jack, Queen, King
+	func shuffle() -> String {
+	switch self {
+	case .Ace:
+	return "ace"
+	case .Jack:
+	return "jack"
+	case.Queen:
+	return "queen"
+	case .King:
+	return "king"
+	default:
+	return String(self.toRaw())
+	}
+	}
+}
+let ace = Rank.ace
+let aceRawValue = ace.toRaw
+//Write function that compares tw0 Rank values with raw values.
+var compare: Int = Rank
+func compareRank(amount: Int, numberOfTimes: Int)
+if let convertedRank = Rank.fromRaw(3) {
+	let threeDescription = convertedRank.simpleDescription()
+}
+
+enum Suit {
+	case Spades, Hearts, Diamonds, Clubs
+	func suitDescription() -> String {
+	switch self {
+	case .Spades:
+	return "spades"
+	case .Hearts:
+	return "heats"
+	case .Diamonds
+	return "diamonds"
+	case .Clubs
+	return "clubs"
+	}
+	}
+}
+let hearts = Suit.Hearts
+let heartsDescription = hearts.suitDescription()
+// Add color methods to return "black" for spades/clubs else "red"
+
+// Use struct to create structures which are always copied to code
+
+struct Card {
+	var Rank: Rank
+	var Suit: Suit
+	func simpleDecription() -> String {
+	return "The \(rank.simpleDescription()) of \(suit.suitDescription())"
+	}
+}
+let threeOfSpades = Card(rank: .Three, suit: .Spades)
+let threeOfSpadesDescription = threeOfSpades.simpleDescription()
+//Add method to Card to create a full deck of cards, one of each
+
+enum ServerResponse {
+	case Result(String, String)
+	case Error(String)
+	case Noon(String)
+}
+let success = ServerResponse.Result("6:00 am", "8:09 pm")
+let failure = ServerResponse.Error("Out of cheese.")
+let midday = ServerResponse.Noon("12:00pm")
+ 
+switch success {
+case let .Result(sunrise, sunset):
+    let serverResponse = "Sunrise is at \(sunrise) and sunset is at \(sunset)."
+case let .Error(error):
+    let serverResponse = "Failure...  \(error)"
+case let .Noon(midday):
+let serverResponse = "Lunch time is \(midday)."
+}
+// Add third case to the ServerResponse and switch
+
+// Protocols 
+protocol ExampleProtocol {
+	var SimpleDescription: String { get }
+	mutating func adjust()
+} // Notice mutating marks a method to modify structure
+
+// Extensions add functionality to existing types.
+extension Int: ExamplePRotocol {
+	var seven: String {
+	return "The number \(self)"
+	}
+	mutating func adjust() {
+	self += 42
+	}
+}
+7.seven
+
+// Generics - Write a name inside angle brackets to create types.
+func repeat<ItemType>(item: ITemType, times: Int) -> ItemType[] {
+	var result = ITemType[]()
+	for i in 0..times {
+	result += item
+	}
+	return result
+}
+repeat("knock", 4)
